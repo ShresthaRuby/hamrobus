@@ -1,0 +1,28 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+     <script type="text/javascript">
+    var apiKey    = "YOUR API KEY HERE";
+     var sessionId = "YOUR SESSION ID HERE";
+    var token     = "YOUR TOKEN HERE";
+ 
+     var session = OT.initSession(apiKey, sessionId);
+ 
+  session.on("streamCreated", function(event) {
+    session.subscribe(event.stream);
+  });
+ 
+  session.connect(token, function(error) {
+    var publisher = OT.initPublisher();
+    session.publish(publisher);
+  });
+</script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>
